@@ -14,7 +14,10 @@ function MapCats() {
   };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyB9gDZR_YgZEWWh095rDycHQO7cawcqzG0">
+    <LoadScript
+      loadingElement={() => <p>Loading...</p>}
+      googleMapsApiKey="YOU_API_KEY"
+    >
       <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={13}

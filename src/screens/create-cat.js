@@ -1,12 +1,37 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { useCat, CREATE_CAT } from "../context";
+import useId from "../hooks/useId";
 import { Form, Card, Button } from "../components/styles";
 
 function CreateCat() {
-  const inputHandler = (e) => {};
+  const [formData, setFormData] = React.useState({
+    name: "",
+    breed: "",
+    age: 0,
+    description: "",
+  });
+  const history = useHistory();
+  const [, dispatch] = useCat();
+  const [id] = useId();
+
+  const inputHandler = (e) => {
+    const { type, name, value } = e.target;
+    const val = type === "number" ? parseFloat(value) : value;
+    setFormData({ ...formData, [name]: val });
+  };
+
+  const formHandler = (e) => {
+    e.preventDefault();
+    dispatch({ type: CREATE_CAT, value: { ...formData, id } });
+    history.push(`/cats`);
+    return;
+  };
 
   return (
     <Card>
-      <Form>
+      <h1>Create Cat</h1>
+      <Form onSubmit={formHandler}>
         <fieldset disabled={false} aria-busy={false}>
           <label htmlFor="name">
             Name
@@ -16,7 +41,7 @@ function CreateCat() {
               name="name"
               placeholder="Name"
               required
-              value=""
+              value={formData.name}
               onChange={inputHandler}
             />
           </label>
@@ -28,7 +53,7 @@ function CreateCat() {
               name="breed"
               placeholder="Breed"
               required
-              value=""
+              value={formData.breed}
               onChange={inputHandler}
             />
           </label>
@@ -40,7 +65,7 @@ function CreateCat() {
               name="age"
               placeholder="Age"
               required
-              value={0}
+              value={formData.age}
               onChange={inputHandler}
             />
           </label>
@@ -51,7 +76,7 @@ function CreateCat() {
               name="description"
               placeholder="Enter A Description"
               required
-              defaultValue=""
+              defaultValue={formData.description}
               onChange={inputHandler}
             />
           </label>
@@ -59,7 +84,7 @@ function CreateCat() {
             type="submit"
             style={{ width: "100%", backgroundColor: "#2e4b84" }}
           >
-            CREATE
+            SUBMIT
           </Button>
         </fieldset>
       </Form>

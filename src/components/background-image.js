@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import image from "../assets/images/1.png";
+import image from "../assets/images/background.png";
 
 const Img = styled.img`
   position: absolute;
