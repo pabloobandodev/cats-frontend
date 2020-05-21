@@ -16,7 +16,7 @@ function MapCats() {
   return (
     <LoadScript
       loadingElement={() => <p>Loading...</p>}
-      googleMapsApiKey="YOU_API_KEY"
+      googleMapsApiKey="AIzaSyB9gDZR_YgZEWWh095rDycHQO7cawcqzG0"
     >
       <GoogleMap
         mapContainerStyle={mapStyles}
