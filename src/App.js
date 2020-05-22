@@ -17,7 +17,7 @@ function App() {
           <Route exact path="/cats" component={Cats} />
           <Route exact path="/cats/:id" component={EditCat} />
           <Route exact path="/create-cat" component={CreateCat} />
-          <Route exact path="/map-cats" component={MapCats} />
+          <Route exact path="/" component={MapCats} />
         </Switch>
         <BackgroundImage />
       </Router>

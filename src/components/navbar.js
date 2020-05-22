@@ -36,7 +36,7 @@ function Navbar() {
           </Option>
         </Li>
         <Li>
-          <Option to="/map-cats" exact={true}>
+          <Option to="/" exact={true}>
             Map
           </Option>
         </Li>
