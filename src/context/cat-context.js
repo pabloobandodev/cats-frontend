@@ -12,7 +12,11 @@ const INITIAL_STATE = [
     name: "Rick Sanchez",
     breed: "Siamese",
     age: 70,
-    description: "I turned my self into cat Diego, I'm CAT Rick 😼!!!!",
+    description: "I turned my self into cat Morty, I'm CAT Rick 😼!!!!",
+    location: {
+      lat: 9.8956782,
+      lng: -84.0696677,
+    },
   },
 ];
 

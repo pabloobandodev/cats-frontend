@@ -1,29 +1,26 @@
 import React from "react";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import { Marker } from "@react-google-maps/api";
+import { useCat } from "../context";
+import { Card } from "../components/styles";
+import Map from "../components/map";
+
+const mapStyles = {
+  margin: "0 auto",
+  height: "60vh",
+  width: "100%",
+};
 
 function MapCats() {
-  const mapStyles = {
-    margin: "0 auto",
-    height: "60vh",
-    width: "60%",
-  };
+  const [cats] = useCat();
 
-  const defaultCenter = {
-    lat: 9.8956782,
-    lng: -84.0696677,
-  };
+  const renderMarkers = () =>
+    cats?.map(({ location, id }) => <Marker key={id} position={location} />);
 
   return (
-    <LoadScript
-      loadingElement={() => <p>Loading...</p>}
-      googleMapsApiKey="YOUR_API_KEY"
-    >
-      <GoogleMap
-        mapContainerStyle={mapStyles}
-        zoom={13}
-        center={defaultCenter}
-      />
-    </LoadScript>
+    <Card>
+      <h1>Map</h1>
+      <Map mapContainerStyle={mapStyles}>{renderMarkers()}</Map>
+    </Card>
   );
 }
 

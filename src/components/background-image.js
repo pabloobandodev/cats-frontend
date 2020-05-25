@@ -3,9 +3,7 @@ import styled from "@emotion/styled";
 import image from "../assets/images/background.png";
 
 const Img = styled.img`
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  margin-top: 1.3rem;
 `;
 
 function BackgroundImage() {

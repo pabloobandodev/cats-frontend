@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Form, Card, Button } from "../components/styles";
 import { useCat, EDIT_CAT } from "../context";
+import { Card, Button } from "../components/styles";
+import FormCat from "../components/form-cat";
 
 function EditCat() {
   const { id } = useParams(1);
@@ -30,73 +31,37 @@ function EditCat() {
     return;
   };
 
+  const onClickMap = (e) => {
+    const location = {
+      lat: e?.latLng.lat(),
+      lng: e?.latLng.lng(),
+    };
+    setFormData({ ...formData, location });
+  };
+
   return (
     <Card>
       <h1>Edit Cat</h1>
-      <Form onSubmit={formHandler}>
-        <fieldset disabled={false} aria-busy={false}>
-          <label htmlFor="name">
-            Name
-            <input
-              type="string"
-              id="name"
-              name="name"
-              placeholder="Name"
-              required
-              defaultValue={formData.name}
-              onChange={inputHandler}
-            />
-          </label>
-          <label htmlFor="breed">
-            Breed
-            <input
-              type="string"
-              id="breed"
-              name="breed"
-              placeholder="Breed"
-              required
-              value={formData.breed}
-              onChange={inputHandler}
-            />
-          </label>
-          <label htmlFor="age">
-            Age
-            <input
-              type="number"
-              id="age"
-              name="age"
-              placeholder="Age"
-              required
-              value={formData.age}
-              onChange={inputHandler}
-            />
-          </label>
-          <label htmlFor="description">
-            Description
-            <textarea
-              id="description"
-              name="description"
-              placeholder="Enter A Description"
-              required
-              defaultValue={formData.description}
-              onChange={inputHandler}
-            />
-          </label>
-          <Button type="submit" style={{ width: "48%" }}>
-            SUBMIT
-          </Button>
-          <Button
-            onClick={onClickCancel}
-            style={{
-              width: "48%",
-              backgroundColor: "#bf5824",
-              marginLeft: "4%",
-            }}
-          >
-            CANCEL
-          </Button>
-        </fieldset>
-      </Form>
+      <FormCat
+        formHandler={formHandler}
+        formData={formData}
+        inputHandler={inputHandler}
+        onClickMap={onClickMap}
+      >
+        <Button type="submit" style={{ width: "48%" }}>
+          SUBMIT
+        </Button>
+        <Button
+          onClick={onClickCancel}
+          style={{
+            width: "48%",
+            backgroundColor: "#bf5824",
+            marginLeft: "4%",
+          }}
+        >
+          CANCEL
+        </Button>
+      </FormCat>
     </Card>
   );
 }

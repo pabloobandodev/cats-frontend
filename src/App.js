@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import styled from "@emotion/styled";
 import { CatProvider } from "./context";
 import Navbar from "./components/navbar";
 import Cats from "./screens/cats";

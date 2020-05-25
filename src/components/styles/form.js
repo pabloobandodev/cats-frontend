@@ -20,17 +20,20 @@ const Form = styled.form`
     margin-bottom: 1rem;
   }
   input,
-  textarea,
-  select {
+  textarea {
     width: 98%;
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid #bfbfdc;
     border-radius: 0.1rem;
+    margin-top: 0.7rem;
     &:focus {
       outline: 0;
       border-color: #8f91a3;
     }
+  }
+  button {
+    margin-top: 1rem;
   }
   fieldset {
     border: 0;
