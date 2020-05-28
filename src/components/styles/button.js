@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled'
 
 const Button = styled.button`
   background-color: #2e4b84;
@@ -9,6 +9,6 @@ const Button = styled.button`
   &:hover {
     opacity: 0.8;
   }
-`;
+`
 
-export { Button };
+export { Button }

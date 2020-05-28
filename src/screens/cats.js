@@ -1,17 +1,17 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
-import { useCat } from "../context";
-import { Card } from "../components/styles";
-import Table from "../components/table";
-const columns = ["ID", "Name", "Breed", "Age"];
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import { useCat } from '../context'
+import { Card } from '../components/styles'
+import { Table } from '../components'
+const columns = ['ID', 'Name', 'Breed', 'Age']
 
 const formatTableInfo = (arr) =>
-  arr?.map(({ id, name, breed, age }) => [id, name, breed, age]);
+  arr?.map(({ id, name, breed, age }) => [id, name, breed, age])
 
 function Cats() {
-  const history = useHistory();
-  const [cats] = useCat();
-  const onClickCat = ([id]) => history.push(`cats/${id}`);
+  const history = useHistory()
+  const [cats] = useCat()
+  const onClickCat = ([id]) => history.push(`cats/${id}`)
 
   return (
     <Card>
@@ -22,7 +22,7 @@ function Cats() {
         onClick={onClickCat}
       />
     </Card>
-  );
+  )
 }
 
-export default Cats;
+export default Cats

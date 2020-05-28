@@ -1,5 +1,5 @@
-import { keyframes } from "@emotion/core";
-import styled from "@emotion/styled";
+import { keyframes } from '@emotion/core'
+import styled from '@emotion/styled'
 
 const loading = keyframes`
   from {
@@ -9,7 +9,7 @@ const loading = keyframes`
   to {
     background-position: 100% 100%;
   }
-`;
+`
 
 const Form = styled.form`
   width: 100%;
@@ -44,7 +44,7 @@ const Form = styled.form`
     &::before {
       height: 10px;
       margin-bottom: 30px;
-      content: "";
+      content: '';
       display: block;
       background-color: #ffffff;
       background-image: linear-gradient(
@@ -54,11 +54,11 @@ const Form = styled.form`
         #ebebeb 100%
       );
     }
-    &[aria-busy="true"]::before {
+    &[aria-busy='true']::before {
       background-size: 50% auto;
       animation: ${loading} 0.5s linear infinite;
     }
   }
-`;
+`
 
-export { Form };
+export { Form }
